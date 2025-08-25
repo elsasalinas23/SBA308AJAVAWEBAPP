@@ -100,3 +100,16 @@ function renderBookings() {
     tableBody.appendChild(tr);
   });
 }
+// CLEAR BOOKINGS BUTTON
+const clearBtn = document.getElementById('clear-bookings');
+clearBtn.addEventListener('click', () => {
+  // 1. reset the array in memory
+  bookings = [];
+
+  // 2. wipe the saved data from localStorage
+  localStorage.removeItem('bookings');
+
+  // 3. redraw the table (empty now)
+  renderBookings();
+});
+
