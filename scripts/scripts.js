@@ -1,6 +1,6 @@
 // scripts/scripts.js
 // We import our API helper from database.js .
-import { getRandomCatImageUrl } from './database.js';
+import { getRandomCatImageUrl } from './database.mjs';
 
 /* ========= 1) GET DOM ELEMENTS ========= */
 const clockEl   = document.getElementById('clock');
@@ -15,7 +15,7 @@ const tableBody = document.getElementById('bookings-body');
 function startClock() {
   function tick() {
     const now = new Date();
-    clockEl.textContent = now.toLocaleString();  // toLocaleString shows nice human format with date + time
+    clockEl.textContent = now.toLocaleString();  // toLocaleString shows nice format with date + time
   }
   tick();                 // show immediately
   setInterval(tick, 1000); // then update every second
