@@ -53,7 +53,6 @@ This shows I can use `fetch` with `async/await` and work with an external API.
 ---
 
 ## Stretch ideas (future improvements)
-- Add a “Clear All Bookings” button  
 - Make sure the calendar only allows future dates  
 - Add a favorites list for cat photos  
 - Dark/light theme toggle for fun
