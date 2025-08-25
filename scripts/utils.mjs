@@ -1,13 +1,13 @@
 // scripts/utils.js
 // A tiny helper module with one or two small functions
 
-// format a date string to something nicer
+// make page look pretty
 export function formatDate(dateStr) {
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
   return new Date(dateStr).toLocaleDateString(undefined, options);
 }
 
-// clear storage (could be used by multiple parts of your app)
+// clear storage
 export function clearLocalBookings() {
   localStorage.removeItem('bookings');
 }
