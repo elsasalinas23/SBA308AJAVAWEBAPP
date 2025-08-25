@@ -1,6 +1,7 @@
 // scripts/scripts.js
 // We import our API helper from database.js .
 import { getRandomCatImageUrl } from './database.mjs';
+import { formatDate, clearLocalBookings } from './utils.mjs';
 
 /* ========= 1) GET DOM ELEMENTS ========= */
 const clockEl   = document.getElementById('clock');
@@ -96,6 +97,7 @@ function renderBookings() {
       <td>${b.pet}</td>
       <td>${b.date}</td>
       <td>${b.time}</td>
+      <td>${formatDate(b.date)}</td>
     `;
     tableBody.appendChild(tr);
   });
@@ -105,11 +107,7 @@ const clearBtn = document.getElementById('clear-bookings');
 clearBtn.addEventListener('click', () => {
   // 1. reset the array in memory
   bookings = [];
-
-  // 2. wipe the saved data from localStorage
-  localStorage.removeItem('bookings');
-
-  // 3. redraw the table (empty now)
-  renderBookings();
+clearLocalBookings();
+renderBookings();
+alert('All bookings cleared!');
 });
-
