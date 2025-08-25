@@ -1,0 +1,88 @@
+
+:root {
+    --brand: #160d1f;
+    --ink: #090c72;
+    --muted: #061004;
+    --bg: #da679f;
+    --line: #12233a;
+    --danger: #488f89;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: cursive;
+}
+
+header,
+footer,
+h2 {
+    text-align: center;
+    padding: 14px 16px;
+}
+.card {
+  max-width: 800px;
+  margin: 16px auto;
+  padding: 16px;
+  background: #fff4;
+  border: 1px solid var(--line, #222);
+  border-radius: 12px;
+}
+
+#clock {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.photo-wrap {
+  margin: 12px 0;
+  display: grid;
+  place-items: center;
+  min-height: 180px;
+  border: 1px dashed #999;
+  border-radius: 12px;
+  padding: 8px;
+  background: #0001;
+}
+
+#pet-photo {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
+
+.when-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto 1fr;
+  gap: 8px 12px;
+  align-items: center;
+  margin: 10px 0 16px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th, .table td {
+  border: 1px solid #999;
+  padding: 8px;
+  text-align: left;
+}
+
+button#book-btn {
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+button#book-btn:hover { filter: brightness(1.05); }

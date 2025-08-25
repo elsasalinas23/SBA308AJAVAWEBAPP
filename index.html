@@ -1,22 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SBA308AJAVAAPP</title>
     <link rel="stylesheet" href="styles/styles.css" />
-  <script src="scripts/scripts.js" defer></script>
+    <script type="module" script src="scripts/scripts.js" defer></script>
 </head>
+
 <body>
-     <!-- HEADER -->
-  <header>
-    <h1>Athena's ClubHouse </h1>
-    <p><strong>Email:</strong> <a href="mailto:elsaslainas2388@gmail.com">elsaslainas2388@gmail.com</a></p>
-<p><img src="images/casaview.jpg" "=" 100px; display:block:margin: 0 auto;"></p>  
-</header>
+    <!-- HEADER -->
+    <header>
+        <h1>Athena's ClubHouse </h1>
+        <p><strong>Email:</strong> <a href="mailto:elsaslainas2388@gmail.com">elsaslainas2388@gmail.com</a></p>
+        <p><img src="images/athena.url"></p>
+    </header>
+    <!-- WELCOME INTRO -->
+    <section class="card">
+        <h2>Welcome to Athena's ClubHouse!</h2>
+        <img src="images/islaview.jpg" alt="islaview" width="400" style="display: block;margin: 0 auto;">
+        <p>Hello everyone my name is Athena and welcome to my clubhouse!!! So not to long ago my perferred human left
+            for college!! I was depressed but lucky my spare "mom" human stepped in with an alternative solution. Seeing
+            that this was a common reoccuring issue she decided to take action; we have built a community in where fur
+            babies that have been left for college get a lil play date to help with the college blues. So join us! Pick
+            a kitty, pick a date/time, lets cure those college blues!!</P>
+    </section>
+
+    <!-- CONTACT FORM and KITTY TYPES -->
+    <!-- CLOCK (shows current date & time and updates every second) -->
+    <section class="card" id="clock-card">
+        <h2>Current Time</h2>
+        <p id="clock" aria-live="polite">--:--:--</p>
+    </section>
+
+    <!-- BOOKING AREA (extend the pet select you already have) -->
+    <section class="card" id="booking">
+        <h2>Pick a Fur Baby 🐾</h2>
+
+        <label for="service">Choose your partner</label>
+        <select id="service" name="service">
+            <option value="">-- choose one --</option>
+            <option value="Athena">Athena</option>
+            <option value="Persephone">Persephone</option>
+            <option value="Aphrodite">Aphrodite aka Ms.Kitty</option>
+            <option value="Zoey">Zoey</option>
+            <option value="Tini Tina">Tini Tina</option>
+            <option value="Burrito">Burrito</option>
+            <option value="Garfield">Garfield</option>
+            <option value="Hades">Hades aka Mr.Kitty</option>
+        </select>
+
+        <!-- when a pet is chosen, we’ll fetch a cute cat photo here -->
+        <div class="photo-wrap">
+            <img id="pet-photo" alt="Your pet will appear here" />
+        </div>
+
+        <h3>Pick a date & time</h3>
+        <div class="when-row">
+            <label for="date">Date</label>
+            <input id="date" type="date" required>
+
+            <label for="time">Time</label>
+            <input id="time" type="time" required>
+        </div>
+
+        <button id="book-btn" type="button">Book it</button>
+    </section>
+
+    <!-- BOOKINGS LIST -->
+    <section class="card" id="bookings">
+        <h2>Your Bookings</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Pet</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody id="bookings-body">
+                <!-- rows get injected by JS -->
+            </tbody>
+        </table>
+    </section>
 
 
 
 
 </body>
+
 </html>
