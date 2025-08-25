@@ -1,0 +1,59 @@
+Readme
+# Athena's Clubhouse 🐾
+
+Hi! Welcome to my little web app for SBA 308.  
+This is a single-page project where you can:
+
+- See a **live clock** (updates every second)  
+- Pick a **cat partner** from a dropdown  
+- Pick a **date and time**  
+- Click **Book it**  
+- See your **bookings** show up in a table (they also save in the browser so they don’t disappear when you refresh)  
+
+When I choose a cat, I also fetch a **random cat photo** from *The Cat API*.  
+This shows I can use `fetch` with `async/await` and work with an external API.
+
+---
+
+## How to run it
+1. Open the project folder in VS Code.  
+2. Right-click `index.html` and choose **Open with Live Server** (or just double-click to open in a browser).  
+3. That’s it — everything runs in the browser, no extra install needed.  
+
+---
+
+## Files / Folders---
+
+## What I used
+- **HTML + CSS** for structure and style  
+- **JavaScript modules** (`type="module"`, with `import` and `export`)  
+- **Fetch API** + **async/await** to grab a cat photo  
+- **localStorage** so bookings stay saved after a refresh  
+
+---
+
+## Features that match the assignment
+- ✅ External API via `fetch` (The Cat API)  
+- ✅ User interaction (when I pick a cat, it fetches and shows a photo)  
+- ✅ Promises / async/await syntax  
+- ✅ Organized into multiple module files (`scripts.js`, `database.js`)  
+- ✅ Program runs without errors (basic validation and try/catch)  
+- ✅ Simple user experience with cards, table, and styled layout  
+- *(Instructor said POST/PUT/PATCH is not graded, so I skipped that part)*  
+
+---
+
+## How booking works
+1. I pick a cat from the dropdown.  
+2. I select a date and time.  
+3. I click **Book it**.  
+4. My booking appears in the table below.  
+5. The booking is saved to `localStorage`, so it stays there even if I refresh.  
+
+---
+
+## Stretch ideas (future improvements)
+- Add a “Clear All Bookings” button  
+- Make sure the calendar only allows future dates  
+- Add a favorites list for cat photos  
+- Dark/light theme toggle for fun
