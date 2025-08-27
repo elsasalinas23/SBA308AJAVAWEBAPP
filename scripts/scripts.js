@@ -1,19 +1,10 @@
-// scripts/scripts.js
-// Main page logic: clock, cat photo, bookings table, contact form
-
-/* ========= 0) IMPORT OUR HELPERS ========= */
 // API helper to fetch a random cat image URL
 import { getRandomCatImageUrl } from './database.mjs';
 // Utility helpers (format dates, clear storage, save/load JSON)
 import {
-  formatDate,
-  clearLocalBookings,
-  saveJSON,
-  loadJSON,
-  clearKey
-} from './utils.mjs';
+  formatDate,clearLocalBookings,saveJSON,loadJSON,} from './utils.mjs';
 
-/* ========= 1) GET DOM ELEMENTS ========= */
+/* =========GET DOM ELEMENTS ========= */
 // Clock
 const clockEl   = document.getElementById('clock');
 
@@ -30,9 +21,8 @@ const clearBtn  = document.getElementById('clear-bookings'); // clear bookings
 const contactForm = document.getElementById('contact-form');
 const nameInput   = document.getElementById('name');
 const emailInput  = document.getElementById('email');
-const clearContactBtn = document.getElementById('clear-contact');
 
-/* ========= 2) CLOCK (updates every second) ========= */
+/* ========= CLOCK (updates every second) ========= */
 function startClock() {
   function tick() {
     const now = new Date();
@@ -43,7 +33,7 @@ function startClock() {
 }
 startClock();
 
-/* ========= 3) LOAD EXISTING DATA FROM localStorage ========= */
+/* =========  LOAD EXISTING DATA FROM localStorage ========= */
 // Bookings are an array in memory and in localStorage
 let bookings = [];
 try {
@@ -60,18 +50,16 @@ if (savedContact) {
   emailInput.value = savedContact.email || '';
 }
 
-/* ========= 4) WHEN PET CHANGES, SHOW A RANDOM CAT PHOTO =========
-   This is our async/await + fetch requirement. */
+/* =========  WHEN PET CHANGES, SHOW A RANDOM CAT PHOTO =========
+  async/await + fetch requirement */
 selectEl.addEventListener('change', async () => {
-  const petName = selectEl.value;
-  // if user chose the placeholder/empty item, clear the photo and exit
+  const petName = selectEl.value; // if user chose the placeholder/empty item, clear the photo and exit
   if (!petName) {
     photoEl.removeAttribute('src');
     photoEl.alt = 'Your pet will appear here';
     return;
   }
-  // tiny "loading" hint
-  photoEl.alt = 'Loading a cute photo...';
+  photoEl.alt = 'Loading a cute photo...'; // tiny "loading" hint
   photoEl.removeAttribute('src');
 
   try{
@@ -89,7 +77,7 @@ selectEl.addEventListener('change', async () => {
   }
 });
 
-/* ========= 5) BOOK BUTTON: VALIDATE + SAVE + RENDER ========= */
+/* =========  BOOK BUTTON: VALIDATE + SAVE + RENDER ========= */
 bookBtn.addEventListener('click', (e) => {
   e.preventDefault(); // keep the page from reloading
 
@@ -118,7 +106,7 @@ bookBtn.addEventListener('click', (e) => {
   alert('✅ Booking saved!');
 });
 
-/* ========= 6) RENDER THE BOOKINGS TABLE ========= */
+/* ========= RENDER THE BOOKINGS TABLE ========= */
 function renderBookings() {
   // Clear old rows
   tableBody.innerHTML = '';
@@ -136,18 +124,15 @@ function renderBookings() {
   });
 }
 
-/* ========= 7) CLEAR BOOKINGS BUTTON ========= */
+/* =========  CLEAR BOOKINGS BUTTON ========= */
 clearBtn.addEventListener('click', () => {
-  // 1) reset the array in memory
-  bookings = [];
-  // 2) remove from localStorage
-  clearLocalBookings();
-  // 3) update the table UI
-  renderBookings();
+  bookings = []; // reset the array in memory
+  clearLocalBookings(); // remove from localStorage
+  renderBookings();   //  update the table UI
   alert('All bookings cleared!');
 });
 
-/* ========= 8) CONTACT FORM: SAVE + PREFILL ========= */
+/* =========  CONTACT FORM: SAVE + PREFILL ========= */
 contactForm.addEventListener('submit', (e) => {
   e.preventDefault(); // no page reload
 

@@ -1,26 +1,19 @@
-// scripts/utils.mjs
-// Small helper functions the whole app can use.
 
-/* ========================
-   1) PRETTY DATE FORMATTER
-   ======================== */
+
 // Turn "2025-08-26" into "August 26, 2025"
 export function formatDate(dateStr) {
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
   return new Date(dateStr).toLocaleDateString(undefined, options);
 }
 
-/* ==============================
-   2) CLEAR JUST THE BOOKINGS KEY
-   ============================== */
-// Remove the saved bookings from localStorage
+
+   // CLEAR JUST THE BOOKINGS KEY
 export function clearLocalBookings() {
   localStorage.removeItem('bookings');
 }
 
-/* ==================================
-   3) GENERIC JSON SAVE / LOAD HELPERS
-   ================================== */
+
+  // GENERIC JSON SAVE / LOAD HELPERS
 // Save ANY value to localStorage under a key (it will be JSON-encoded)
 export function saveJSON(key, value) {
   try {
