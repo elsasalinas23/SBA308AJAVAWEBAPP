@@ -1,16 +1,20 @@
 // scripts/scripts.js
 // We import our API helper from database.js .
 import { getRandomCatImageUrl } from './database.mjs';
-import { formatDate, clearLocalBookings } from './utils.mjs';
+import { formatDate, clearLocalBookings, saveJSON, loadJSON, clearKey } from './utils.mjs';
 
 /* ========= 1) GET DOM ELEMENTS ========= */
-const clockEl   = document.getElementById('clock');
-const selectEl  = document.getElementById('service'); // your pet chooser
-const photoEl   = document.getElementById('pet-photo');
-const dateEl    = document.getElementById('date');
-const timeEl    = document.getElementById('time');
-const bookBtn   = document.getElementById('book-btn');
+const clockEl = document.getElementById('clock');
+const selectEl = document.getElementById('service'); // your pet chooser
+const photoEl = document.getElementById('pet-photo');
+const dateEl = document.getElementById('date');
+const timeEl = document.getElementById('time');
+const bookBtn = document.getElementById('book-btn');
 const tableBody = document.getElementById('bookings-body');
+const contactForm = document.getElementById('contact-form');
+const nameInput = document.getElementById('name');
+const emailInput = document.getElementById('email');
+
 
 /* ========= 2) CLOCK (updates every second) ========= */
 function startClock() {
@@ -64,12 +68,12 @@ selectEl.addEventListener('change', async () => {
 bookBtn.addEventListener('click', (e) => {
   e.preventDefault(); // keep the page from reloading
 
-  const pet  = selectEl.value;
+  const pet = selectEl.value;
   const date = dateEl.value;
   const time = timeEl.value;
 
   // Simple checks for the user (friendly messages)
-  if (!pet)  return alert('Please pick a pet from the list.');
+  if (!pet) return alert('Please pick a pet from the list.');
   if (!date) return alert('Please pick a date.');
   if (!time) return alert('Please pick a time.');
 
@@ -107,7 +111,7 @@ const clearBtn = document.getElementById('clear-bookings');
 clearBtn.addEventListener('click', () => {
   // 1. reset the array in memory
   bookings = [];
-clearLocalBookings();
-renderBookings();
-alert('All bookings cleared!');
+  clearLocalBookings();
+  renderBookings();
+  alert('All bookings cleared!');
 });
